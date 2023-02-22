@@ -23,4 +23,10 @@ export const styles: StylesConfig<TipsOption> = {
     border: "none",
     boxShadow: "none",
   }),
+
+  valueContainer: (base) => ({
+    ...base,
+    textAlign: "center",
+    borderColor: "transparent",
+  }),
 };
