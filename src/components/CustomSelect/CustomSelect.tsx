@@ -1,3 +1,4 @@
+import { Dispatch } from "react";
 import Select from "react-select";
 import { TipsOption } from "../../types/types";
 import { styles } from "./styles";
@@ -5,10 +6,15 @@ import { styles } from "./styles";
 interface SelectProps {
   select: TipsOption[];
   value: TipsOption;
-  onChange: (event: TipsOption | null) => void;
+  setHooks: Dispatch<React.SetStateAction<TipsOption>>;
 }
 
-export const CustomSelect = ({ select, value, onChange }: SelectProps) => {
+export const CustomSelect = ({ select, value, setHooks }: SelectProps) => {
+  const onChange = (event: TipsOption | null) => {
+    if (event) {
+      setHooks(event);
+    }
+  };
   return (
     <Select
       options={select}

@@ -36,12 +36,6 @@ export const Form = () => {
     }
   };
 
-  const onChange = (event: TipsOption | null) => {
-    if (event) {
-      setSelect(event);
-    }
-  };
-
   return (
     <StyledForm>
       <Title>Welcome to App</Title>
@@ -52,7 +46,7 @@ export const Form = () => {
         <CustomSelect
           select={SelectOptions}
           value={select}
-          onChange={onChange}
+          setHooks={setSelect}
         />
       </InputGroop>
       <Total>Total:{total.toFixed(2)}$</Total>
